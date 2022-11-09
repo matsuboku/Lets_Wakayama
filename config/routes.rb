@@ -15,7 +15,7 @@ Rails.application.routes.draw do
   scope module: :public do
 
   end
-  
+
   get 'admin'=> 'admin/homes#top'
   namespace :admin do
 
