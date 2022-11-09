@@ -1,20 +1,41 @@
-<div class='container px-5 px-sm-0'>
+<div class='container px-sm-0'>
   <div class='row'>
-    <div class='col-3'></div>
-    <div class="col-6">
-      <h2>マイページ</h2>
-      <table class='table'>
-        <tr><%= image_tag @user.get_profile_image, size:'100x100' %></tr>
+    <div class='col-lg-3'></div>
+    <div class="col-lg-6">
+      <h2 class="pt-3">マイページ</h2>
+      <table class='table table-borderless table-responsive'>
         <tr>
-      	  <th>name</th>
+          <th><%= image_tag @user.get_profile_image(100,100),class: "rounded-circle" %></th>
+          <th>投稿数</th>
+          <th>フォロワー</th>
+          <th>フォロー</th>
+        </tr>
+        <tr>
+      	  <th>ユーザー名</th>
       	  <th><%= @user.name %></th>
         </tr>
         <tr>
-      	  <th>introduction</th>
+      	  <th></th>
       	  <th><%= @user.introduction %></th>
         </tr>
-
       </table>
+
+      <div class='row'>
+        <div class="col-12 px-2">
+          <% if @user == current_user %>
+            <%= link_to users_info_edit_path, class: "btn btn-outline-secondary btn-block" do %>
+              <i class="fas fa-user-cog"></i>
+            <% end %>
+          <% else %>
+            <td></td>
+          <% end %>
+        </div>
+      </div>
+
     </div>
-    <div class='col-3'></div>
+    <div class='col-lg-3'></div>
+  </div>
+
+  <div class="row">
+
   </div>
