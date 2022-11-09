@@ -6,22 +6,30 @@ class Public::UsersController < ApplicationController
   end
 
   def edit
+    @user = current_user
   end
 
   def update
+    @user = current_user
+    if @user.update(update_params)
+       flash[:notice] = "successfully updated!"
+       redirect_to users_my_page_path
+    else
+       render :edit
+    end
   end
 
   def confirm
   end
 
   private
-  def user_params
+  def update_params
     params.require(:user).permit(:name, :introduction, :profile_image)
   end
 
   def ensure_correct_user
-    @user = User.find(params[:id])
-    unless @user == current_user
+
+    unless current_user
       redirect_to users_my_page_path(current_user)
     end
   end
