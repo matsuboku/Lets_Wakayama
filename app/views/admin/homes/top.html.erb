@@ -1,0 +1,33 @@
+<div class = "container">
+  <div class = "row py-4">
+    <h3>ユーザー一覧</h3>
+  </div>
+
+  <table class="table">
+  <thead>
+    <tr>
+      <th class="header1">ID</th>
+      <th class="header2">ユーザー名</th>
+      <th class="header3">ステータス</th>
+      <th class="header4"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @users.each do |user| %>
+    <tr>
+      <td class="id"><%= user.id %></td>
+      <td class="name"><%= user.name %></td>
+      <td class="status">
+        <% if user.is_deleted == false %>
+         <p class="text-success font-weight-bold">有効</p>
+        <% else %>
+         <p class="text-secondary font-weight-bold">退会</p>
+         <% end %>
+      </td>
+      <td class="show"><%#= link_to "表示", show_admin_user_path, class: 'btn btn-success' %></td>
+    </tr>
+    <% end %>
+  </tbody>
+  </table>
+</div>
