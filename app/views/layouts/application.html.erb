@@ -2,15 +2,18 @@
 <html>
   <head>
     <title>LetsWakayama</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1, maximum-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    <script src="https://kit.fontawesome.com/c8df76fea2.js" crossorigin="anonymous"></script>
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
+  <body class="d-flex flex-column vh-100">
+    <%= render 'layouts/header' %>
+
     <%= yield %>
+    <%= render 'layouts/footer' %>
   </body>
 </html>
