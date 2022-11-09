@@ -2,9 +2,9 @@ Rails.application.routes.draw do
 
 
   namespace :public do
-    get 'members/show'
-    get 'members/edit'
-    get 'members/confirm'
+    get 'users/show'
+    get 'users/edit'
+    get 'users/confirm'
   end
   devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
   sessions: "admin/sessions"
