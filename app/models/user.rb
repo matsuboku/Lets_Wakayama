@@ -7,6 +7,10 @@ class User < ApplicationRecord
   validates :name, presence: true
   validates :email, presence: true
 
+  # is_deletedがfalseならtrueを返すようにしている
+  def active_for_authentication?
+    super && (is_deleted == false)
+  end
 
   has_one_attached :profile_image
   def get_profile_image(width, height)
