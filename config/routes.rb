@@ -1,11 +1,4 @@
 Rails.application.routes.draw do
-
-
-  namespace :public do
-    get 'users/show'
-    get 'users/edit'
-    get 'users/confirm'
-  end
   devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
   sessions: "admin/sessions"
   }
@@ -17,6 +10,10 @@ Rails.application.routes.draw do
 
   root to: "public/homes#top"
   get 'about'=> 'public/homes#about'
+  get 'users/my_page'=> 'public/users#show'
+  get 'users/info/edit'=> 'public/users#edit'
+  patch 'users/info'=> 'public/users#update'
+  get 'users/confirm'=> 'public/users#confirm'
   scope module: :public do
 
   end
