@@ -4,7 +4,7 @@
     <div class="col-6">
       <h2>マイページ</h2>
       <table class='table'>
-        <!--<tr><%#= image_tag @user.get_profile_image, size:'100x100' %></tr>-->
+        <tr><%= image_tag @user.get_profile_image, size:'100x100' %></tr>
         <tr>
       	  <th>name</th>
       	  <th><%= @user.name %></th>
