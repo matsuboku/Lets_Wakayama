@@ -1,2 +1,20 @@
-<h1>Public::Users#show</h1>
-<p>Find me in app/views/public/users/show.html.erb</p>
+<div class='container px-5 px-sm-0'>
+  <div class='row'>
+    <div class='col-3'></div>
+    <div class="col-6">
+      <h2>マイページ</h2>
+      <table class='table'>
+        <!--<tr><%#= image_tag @user.get_profile_image, size:'100x100' %></tr>-->
+        <tr>
+      	  <th>name</th>
+      	  <th><%= @user.name %></th>
+        </tr>
+        <tr>
+      	  <th>introduction</th>
+      	  <th><%= @user.introduction %></th>
+        </tr>
+
+      </table>
+    </div>
+    <div class='col-3'></div>
+  </div>
