@@ -11,9 +11,9 @@
            <!--顧客ログイン時-->
           <% if user_signed_in? %>
             <li class="nav-item mx-3">
-             <%= link_to users_my_page_path(current_user), class: 'nav-link text-dark' do %>
+             <%#= link_to users_my_page_path(current_user), class: 'nav-link text-dark' do %>
              ようこそ<strong> <%= current_user.name %>さん！</strong>
-             <% end %>
+             <%# end %>
             </li>
             <li class="nav-item mx-3">
               <%#= link_to users_my_page_path(current_user), class: 'nav-link text-dark' do %>
@@ -22,12 +22,12 @@
             </li>
             <li class="nav-item mx-3">
               <%#= link_to new_posts_path, class: 'nav-link text-dark'   do %>
-              <i class="fa-sharp fa-solid fa-cake-candles">投稿</i>
+              <i class="fa-solid fa-plus-square">投稿</i>
               <%# end %>
             </li>
             <li class="nav-item mx-3">
               <%#= link_to  posts_path, class: 'nav-link text-dark'   do %>
-              <i class="fa-solid fa-cart-shopping">いいね！</i>
+              <i class="fa-solid fa-heart">いいね！</i>
               <%# end %>
             </li>
             <li class="nav-item mx-3">
