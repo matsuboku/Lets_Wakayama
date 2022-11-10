@@ -25,7 +25,7 @@
          <p class="text-secondary font-weight-bold">退会</p>
          <% end %>
       </td>
-      <td class="show"><%#= link_to "表示", show_admin_user_path, class: 'btn btn-success' %></td>
+      <td class="show"><%= link_to "表示", admin_user_path(user), class: 'btn btn-success' %></td>
     </tr>
     <% end %>
   </tbody>
