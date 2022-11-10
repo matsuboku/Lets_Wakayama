@@ -1,2 +1,30 @@
-<h1>Admin::Genres#index</h1>
-<p>Find me in app/views/admin/genres/index.html.erb</p>
+<div class="container">
+  <div class="row justify-content-center pt-4">
+    <h4>ジャンル一覧・追加</h4>
+  </div>
+  <%= form_with model: @genre,url: admin_genres_path, local:true ,class: "row justify-content-center" do |f| %>
+    <div class="form-group row justify-content-center">
+      <%=f.text_field :name, autofocus: true, class: "col-sm-6"  %>
+      <%= f.submit "新規登録" , class: 'btn btn-success btn-sm offset-1 col-sm-3' %>
+    </div>
+  <% end %>
+
+  <div class="row justify-content-center mt-4">
+    <table class="table table-hover col-lg-5 col-md-5 justify-content-center">
+      <thead class="thead-light text-center">
+        <tr>
+          <th>ジャンル</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody class="text-center">
+        <%  @genres.each do |genre| %>
+          <tr>
+            <td><%= genre.name %></td>
+            <td><%= link_to "編集する", edit_admin_genre_path(genre), class: 'justify-content-sm-center btn btn-success ' %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
