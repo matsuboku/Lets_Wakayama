@@ -1,8 +1,5 @@
 Rails.application.routes.draw do
-  namespace :admin do
-    get 'genres/index'
-    get 'genres/edit'
-  end
+  
   devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
   sessions: "admin/sessions"
   }
@@ -11,7 +8,8 @@ Rails.application.routes.draw do
   registrations: "public/registrations",
   sessions: 'public/sessions'
   }
-
+  
+  # 顧客側
   root to: "public/homes#top"
   get 'about'=> 'public/homes#about'
   
@@ -25,10 +23,12 @@ Rails.application.routes.draw do
   scope module: :public do
 
   end
-
+  
+  # 管理者側
   get 'admin'=> 'admin/homes#top'
   namespace :admin do
     resources :genres, only: [:index, :edit, :create, :update]
+    resources :users, only: [:update, :edit, :show, :index]
   end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
