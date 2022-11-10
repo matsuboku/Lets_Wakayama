@@ -1,2 +1,12 @@
-<h1>Public::Homes#top</h1>
-<p>Find me in app/views/public/homes/top.html.erb</p>
+<div id="top" class="container">
+  <div class="row">
+    <div class="col-md-3">
+      <div class="mt-4">
+        <%= render 'admin/genres/genre_sidebar', genres: @genres%>
+      </div>
+    </div>
+
+    <div class="col-md-9 mb-4">
+    </div>
+  </div>
+</div>
