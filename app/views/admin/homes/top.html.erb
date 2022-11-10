@@ -7,7 +7,7 @@
   <thead>
     <tr>
       <th class="header1">ID</th>
-      <th class="header2">ユーザー名</th>
+      <th class="header2">ユーザ名</th>
       <th class="header3">ステータス</th>
       <th class="header4"></th>
     </tr>
@@ -25,7 +25,7 @@
          <p class="text-secondary font-weight-bold">退会</p>
          <% end %>
       </td>
-      <td class="show"><%#= link_to "表示", show_admin_user_path, class: 'btn btn-success' %></td>
+      <td class="show"><%= link_to "表示", admin_user_path(user), class: 'btn btn-success' %></td>
     </tr>
     <% end %>
   </tbody>
