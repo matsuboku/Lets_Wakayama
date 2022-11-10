@@ -39,12 +39,12 @@
           <% elsif admin_signed_in? %>
             <li class="nav-item mx-3">
               <%= link_to admin_users_path , class: 'nav-link text-dark' do %>
-              <i class="fa-solid fa-users">会員一覧</i>
-              <%# end %>
+              <i class="fa-solid fa-users">ユーザ一覧</i>
+              <% end %>
             </li>
             <li class="nav-item mx-3">
               <%= link_to admin_genres_path , class: 'nav-link text-dark' do %>
-              <i class="fa-solid fa-list-radio">ジャンル一覧</i>
+              <i class="fa-solid fa-tag">ジャンル一覧</i>
               <% end %>
             </li>
             <li class="nav-item mx-3">
