@@ -2,6 +2,8 @@
   <div class="row">
     <div class="col-md-3">
       <div class="mt-4">
+        <div class="pl-3"><strong><%= link_to "新着", posts_path, class: "text-dark" %></strong></div>
+
         <%= render 'admin/genres/genre_sidebar', genres: @genres%>
       </div>
     </div>

@@ -6,7 +6,7 @@
       <table class='table table-borderless table-responsive'>
         <tr>
           <th><%= image_tag @user.get_profile_image(100,100),class: "rounded-circle" %></th>
-          <th>投稿数</th>
+          <th><%= @user.posts.count %><br>投稿数</th>
           <th>フォロワー</th>
           <th>フォロー</th>
         </tr>
