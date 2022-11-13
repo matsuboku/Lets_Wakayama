@@ -5,6 +5,7 @@ class Public::UsersController < ApplicationController
   def show
     @user = current_user
     @posts = @user.posts
+    @post = @user.posts
   end
 
   def edit
