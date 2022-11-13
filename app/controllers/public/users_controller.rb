@@ -3,9 +3,8 @@ class Public::UsersController < ApplicationController
   before_action :ensure_guest_user, only: [:edit]
 
   def show
-    @user = current_user
+    @user = User.find(params[:id])
     @posts = @user.posts
-    @post = @user.posts
   end
 
   def edit
@@ -43,7 +42,7 @@ class Public::UsersController < ApplicationController
   end
 
   def ensure_correct_user
-    @user = current_user
+    @user = User.find(params[:id])
     unless @user == current_user
       redirect_to user_path(current_user)
     end
