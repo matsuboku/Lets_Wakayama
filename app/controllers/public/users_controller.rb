@@ -3,17 +3,17 @@ class Public::UsersController < ApplicationController
   before_action :ensure_guest_user, only: [:edit]
 
   def show
-    @user = current_user
+    @user = User.find(params[:id])
+    @posts = @user.posts
   end
 
   def edit
-    @user = current_user
+
   end
 
   def update
-    @user = current_user
     if @user.update(update_params)
-       flash[:notice] = "successfully updated!"
+       flash[:notice] = "更新しました!"
        redirect_to users_my_page_path
     else
        render :edit
@@ -42,13 +42,14 @@ class Public::UsersController < ApplicationController
   end
 
   def ensure_correct_user
-    unless current_user
-      redirect_to users_my_page_path(current_user)
+    @user = User.find(params[:id])
+    unless @user == current_user
+      redirect_to user_path(current_user)
     end
   end
 
   def ensure_guest_user
-    @user = User.find(params[:id])
+    @user = current_user
     if @user.name == "guestuser"
       redirect_to users_my_page_path(current_user) , notice: 'ゲストユーザーはプロフィール編集画面へ遷移できません。'
     end
