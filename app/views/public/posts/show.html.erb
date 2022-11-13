@@ -19,6 +19,13 @@
               <span><i class="fas fa-user"></i> By<%= link_to users_my_page_path ,class: "text-dark" do %><%= @post.user.name %><% end %> ｜ </span>
               <!--<span><%#= link_to "#{posts.post_comments.count} コメント", post_path(posts.id), class:"text-dark" %></span>-->
               <p>投稿日：<%= @post.created_at.strftime('%Y/%m/%d') %></p>
+              <% if @post.user == current_user %>
+              <td><%= link_to 'Edit', edit_post_path(@post), class: "btn btn-sm btn-success" %></td>
+              <td><%= link_to 'Destroy', @post, method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-sm btn-danger"%></td>
+              <% else %>
+              <td></td>
+              <td></td>
+              <% end %>
             </div>
           </div>
         </div>
