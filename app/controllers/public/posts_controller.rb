@@ -11,6 +11,7 @@ class Public::PostsController < ApplicationController
   end
 
   def index
+    @posts = Post.all
   end
 
   def show
@@ -19,6 +20,6 @@ class Public::PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:image, :title, :explanation)
+    params.require(:post).permit(:image, :title, :explanation, :genre_id)
   end
 end
