@@ -1,4 +1,5 @@
 class Public::PostsController < ApplicationController
+  before_action :correct_user, only:[:edit, :update]
   def new
     @post = Post.new
   end
@@ -15,11 +16,18 @@ class Public::PostsController < ApplicationController
   end
 
   def show
+    @post = Post.find(params[:id])
   end
 
   private
 
   def post_params
     params.require(:post).permit(:image, :title, :explanation, :genre_id)
+  end
+  
+  def correct_user
+    @book = Book.find(params[:id])
+    @user = @book.user
+    redirect_to(books_path) unless @user == current_user
   end
 end
