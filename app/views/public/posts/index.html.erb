@@ -1,5 +1,5 @@
   <div class="row ml-3">
-    <div class="card-list col-3">
+    <div class="card-list col-lg-3 col-md-5">
       <% @posts.each do |posts| %>
       <div class="card w-100 my-4 shadow-lg">
         <%= link_to post_path(posts.id) do %>
@@ -18,8 +18,8 @@
               </p>
               <p class="card-text">説明：<%= posts.explanation %></p>
               <p class="card-text">ジャンル：<%= posts.genre.name %></p>
-              <span><i class="fas fa-user"></i> By<%= link_to users_my_page_path(posts.user) ,class: "text-dark" do %><%= posts.user.name %><% end %> ｜ </span>
-              <!--<span><%#= link_to "#{posts.post_comments.count} コメント", post_path(posts.id), class:"text-dark" %></span>-->
+              <span><i class="fas fa-user"></i> By<%= link_to user_path(posts.user) ,class: "text-dark" do %><%= posts.user.name %><% end %> ｜ </span>
+              <span><%= link_to "#{posts.post_comments.count} コメント", post_path(posts.id), class:"text-dark" %></span>
             </div>
           </div>
         </div>
