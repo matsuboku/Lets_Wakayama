@@ -17,7 +17,7 @@
           <p class="card-text">説明：<%= @post.explanation %></p>
           <p class="card-text">ジャンル：<%= @post.genre.name %></p>
           <span><i class="fas fa-user"></i> By<%= link_to user_path(@post.user) ,class: "text-dark" do %><%= @post.user.name %><% end %> ｜ </span>
-          <span><%= render 'public/post_comments/comment_count', post: @post %></span>
+          <span id="comment_count"><%= render 'public/post_comments/comment_count', post: @post %></span>
           <p>投稿日：<%= @post.created_at.strftime('%Y/%m/%d') %></p>
           <% if @post.user == current_user %>
           <td><%= link_to 'Edit', edit_post_path(@post), class: "btn btn-sm btn-success" %></td>
