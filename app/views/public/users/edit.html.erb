@@ -2,7 +2,7 @@
     <div class='row'>
       <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
         <h3 class="py-3">プロフィール編集</h3>
-        <%= form_with model:@user,url: users_info_path, local:true do |f| %> <!-- →url:以下にはupdateアクションのパスを記載 -->
+        <%= form_with model:@user, local:true do |f| %> 
           <div class="form-group">
             <%= f.label :"プロフィール写真" %>
             <%= f.file_field :profile_image, class: "form-control-file user_image", accept: 'image/*' %>

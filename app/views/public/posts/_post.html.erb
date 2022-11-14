@@ -13,9 +13,8 @@
               </p>
               <p class="card-text">説明：<%= posts.explanation %></p>
               <p class="card-text">ジャンル：<%= posts.genre.name %></p>
-          </div>
-          <div class="col-4">
-
+              <p><%= link_to "#{posts.post_comments.count} コメント", post_path(posts.id), class: "text-dark" %>
+              </p>
           </div>
         </div>
       </div>
