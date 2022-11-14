@@ -1,0 +1,19 @@
+<table>
+  <% post.post_comments.each do |post_comment| %>
+  <tr>
+    <td><%= image_tag post_comment.user.get_profile_image(50,50) %></td>
+    <td><%= post_comment.comment %></td>
+    <td>
+      <% if post_comment.user == current_user %>
+        <%= link_to "Destroy", post_post_comment_path(post, post_comment), method: :delete, remote: true, class: "btn btn-sm btn-danger" %>
+      <% end %>
+    </td>
+  </tr>
+  <% end %>
+</table>
+<div>
+  <%= form_with model: [post, post_comment] ,local: false do |f| %>
+    <%= f.text_area :comment %>
+    <%= f.submit "送信" %>
+  <% end %>
+</div>
