@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
   sessions: "admin/sessions"
   }
@@ -16,16 +17,15 @@ Rails.application.routes.draw do
   # 顧客側
   root to: "public/homes#top"
   get 'about'=> 'public/homes#about'
-
-  get 'users/my_page/:id'=> 'public/users#show', as: :users_my_page
-  get 'users/info/edit'=> 'public/users#edit'
-  patch 'users/info'=> 'public/users#update'
   get 'users/confirm'=> 'public/users#confirm'
   patch 'users/withdraw'=> 'public/users#withdraw'
   get 'users' => 'public/users#dummy'
 
   scope module: :public do
-    resources :posts, only: [:new, :create, :index, :show, :edit, :update, :destroy]
+    resources :users, only: [:show, :edit, :update]
+    resources :posts, only: [:new, :create, :index, :show, :edit, :update, :destroy] do
+      resources :post_comments, only: [:create, :destroy]
+    end
   end
 
   # 管理者側

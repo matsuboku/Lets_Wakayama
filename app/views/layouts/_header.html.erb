@@ -11,12 +11,12 @@
            <!--顧客ログイン時-->
           <% if user_signed_in? %>
             <li class="nav-item mx-3">
-             <%= link_to users_my_page_path(current_user), class: 'nav-link text-dark' do %>
+             <%= link_to user_path(current_user), class: 'nav-link text-dark' do %>
              ようこそ<strong> <%= current_user.name %>さん！</strong>
              <% end %>
             </li>
             <li class="nav-item mx-3">
-              <%= link_to users_my_page_path(current_user), class: 'nav-link text-dark' do %>
+              <%= link_to user_path(current_user), class: 'nav-link text-dark' do %>
               <i class="fa-solid fa-user-gear">マイページ</i>
               <% end %>
             </li>

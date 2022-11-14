@@ -8,13 +8,12 @@ class Public::UsersController < ApplicationController
   end
 
   def edit
-
   end
 
   def update
     if @user.update(update_params)
        flash[:notice] = "更新しました!"
-       redirect_to users_my_page_path
+       redirect_to user_path
     else
        render :edit
     end
@@ -51,7 +50,7 @@ class Public::UsersController < ApplicationController
   def ensure_guest_user
     @user = current_user
     if @user.name == "guestuser"
-      redirect_to users_my_page_path(current_user) , notice: 'ゲストユーザーはプロフィール編集画面へ遷移できません。'
+      redirect_to user_path(current_user) , notice: 'ゲストユーザーはプロフィール編集画面へ遷移できません。'
     end
   end
 end
