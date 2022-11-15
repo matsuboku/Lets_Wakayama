@@ -26,9 +26,9 @@
               <% end %>
             </li>
             <li class="nav-item mx-3">
-              <%#=link_to favorites_user_path(current_user) %>
+              <%= link_to favorites_user_path(current_user), class: 'nav-link text-dark' do %>
               <i class="fa-solid fa-heart">いいね！</i>
-              <%# end %>
+              <% end %>
             </li>
             <li class="nav-item mx-3">
               <%= link_to destroy_user_session_path, class: 'nav-link text-dark',  method: :delete do %>
