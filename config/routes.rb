@@ -26,7 +26,12 @@ Rails.application.routes.draw do
   get 'users' => 'public/users#dummy'
 
   scope module: :public do
-    resources :users, only: [:show, :edit, :update]
+    resources :users, only: [:show, :edit, :update] do
+    # ユーザーidが含まれてるurlにするため
+      member do
+        get :favorites
+      end
+    end
     resources :posts, only: [:new, :create, :index, :show, :edit, :update, :destroy] do
       resource :favorites, only: [:create, :destroy]
       resources :post_comments, only: [:create, :destroy]
