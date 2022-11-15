@@ -17,6 +17,19 @@ class User < ApplicationRecord
 
   validates :name, presence: true
   validates :email, presence: true
+  
+  # フォローしたときの処理
+  def follow(user_id)
+    relationships.create(followed_id: user_id)
+  end
+  # フォローを外すときの処理
+  def unfollow(user_id)
+    relationships.find_by(followed_id: user_id).destroy
+  end
+  # フォローしているか判定
+  def following?(user)
+    followings.include?(user)
+  end
 
   # is_deletedがfalseならログイン可。trueならログイン不可
   def active_for_authentication?
