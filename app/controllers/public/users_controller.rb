@@ -34,7 +34,14 @@ class Public::UsersController < ApplicationController
   def dummy
     redirect_to new_user_registration_path
   end
-
+  
+  def favorites
+    @user = User.find(params[:id])
+    # ユーザーがいいねした記事のidを取得する
+    favorites= Favorite.where(user_id: @user.id).pluck(:post_id)
+    @favorite_posts = Post.find(favorites)
+  end
+  
   private
   def update_params
     params.require(:user).permit(:name, :introduction, :profile_image)
