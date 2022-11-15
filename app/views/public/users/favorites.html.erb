@@ -1,0 +1,25 @@
+<div class="container">
+  <h3 class="py-4">いいね一覧</h3>
+  <div class="row">
+    <% @favorite_posts.each do |post| %>
+    <div class="card my-4 mx-2">
+      <%= link_to post_path(post.id) do %>
+        <%= image_tag post.get_image(100,100), class:"card-img-top"; %>
+      <% end %>
+      <div class="card-body">
+        <div>
+            <p class="card-title">
+              <%= link_to(post_path(post.id), class:"text-dark") do %>
+                <strong><i class="far fa-flag"></i><span> <%= post.title %></span></strong>
+              <% end %>
+            </p>
+            <p class="card-text">説明：<%= post.explanation %></p>
+            <p class="card-text">ジャンル：<%= post.genre.name %></p>
+            <span id="comment_count"><%= render 'public/post_comments/comment_count', post: post %> | </span>
+            <span class="favorites_buttons_<%= post.id %>"><%= render 'public/favorites/favorite', post: post %></span>
+        </div>
+      </div>
+    </div>
+    <% end %>
+  </div>
+</div>
