@@ -1,5 +1,13 @@
 Rails.application.routes.draw do
 
+  namespace :public do
+    get 'relationships/followings'
+    get 'relationships/followers'
+  end
+  namespace :public do
+    get 'favorites/create'
+    get 'favorites/destroy'
+  end
   devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
   sessions: "admin/sessions"
   }
@@ -22,8 +30,17 @@ Rails.application.routes.draw do
   get 'users' => 'public/users#dummy'
 
   scope module: :public do
-    resources :users, only: [:show, :edit, :update]
+    resources :users, only: [:show, :edit, :update] do
+      resource :relationships, only: [:create, :destroy]
+      get 'followings' => 'relationships#followings', as: 'followings'
+      get 'followers' => 'relationships#followers', as: 'followers'
+    # ユーザーidが含まれてるurlにするため
+      member do
+        get :favorites
+      end
+    end
     resources :posts, only: [:new, :create, :index, :show, :edit, :update, :destroy] do
+      resource :favorites, only: [:create, :destroy]
       resources :post_comments, only: [:create, :destroy]
     end
   end
