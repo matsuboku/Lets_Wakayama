@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
 
   namespace :public do
+    get 'relationships/followings'
+    get 'relationships/followers'
+  end
+  namespace :public do
     get 'favorites/create'
     get 'favorites/destroy'
   end
@@ -27,6 +31,9 @@ Rails.application.routes.draw do
 
   scope module: :public do
     resources :users, only: [:show, :edit, :update] do
+      resource :relationships, only: [:create, :destroy]
+      get 'followings' => 'relationships#followings', as: 'followings'
+      get 'followers' => 'relationships#followers', as: 'followers'
     # ユーザーidが含まれてるurlにするため
       member do
         get :favorites
