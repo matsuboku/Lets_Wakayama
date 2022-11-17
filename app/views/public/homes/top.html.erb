@@ -8,7 +8,46 @@
       </div>
     </div>
 
-    <div class="col-md-9 mb-4">
+    <div class="col-md-9 py-4">
+      <div id='map'></div>
+      <style>
+      #map {
+        height: 600px;
+        width: 100%;
+      }
+      </style>
+      <script>
+        function initMap(){
+          geocoder = new google.maps.Geocoder()
+
+          map = new google.maps.Map(document.getElementById('map'), {
+            center: {lat: 34.22611, lng:135.1675},  //和歌山
+            zoom: 14,
+          });
+          <% @posts.each do |post| %>
+          <% if post.latitude && post.longitude %>
+            ( function() {
+              let markerLatLng = new google.maps.LatLng({lat: <%= post.latitude %>, lng: <%= post.longitude %>}); // 緯度経度のデータ作成
+              let marker = new google.maps.Marker({
+                position: markerLatLng,
+                map: map
+              });
+        　　　//マーカーをクリックしたとき、詳細情報を表示
+              let infowindow = new google.maps.InfoWindow({
+                position: markerLatLng,
+                content: "<a href='<%= post_url(post.id) %>'><%= post.title %></a>"
+              }); //ここで詳細ページへのリンクを表示させる
+              marker.addListener('click', function() {
+                infowindow.open(map, marker);
+              });
+
+           })();
+          <% end %>
+          <% end %>
+        }
+
+      </script>
+      <script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['GOOGLE_MAP_API'] %>&callback=initMap" async defer></script>
     </div>
   </div>
 </div>
