@@ -3,9 +3,9 @@
 <% genres.each do |genre| %>
   <ul>
     <li>
-      <%#= link_to posts_path(genre_id: genre.id ) do %>
+      <%= link_to root_path(genre_id: genre.id), class:"text-dark" do %>
         <%= genre.name %>
-      <%# end %>
+      <% end %>
     </li>
   </ul>
 <% end %>
