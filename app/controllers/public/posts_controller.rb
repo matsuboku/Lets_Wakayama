@@ -2,6 +2,7 @@ class Public::PostsController < ApplicationController
   before_action :correct_user, only:[:edit, :update]
   def new
     @post = Post.new
+
   end
 
   def create
@@ -37,10 +38,19 @@ class Public::PostsController < ApplicationController
     end
   end
 
+  def search
+    maps = Map.where(latitude: params[:lat]).where(longitude: params[:lng])
+    @marker_arr =[]
+    maps.each do |map|
+      #pushメソッドは配列に値を入れるメソッド
+      @marker_arr.push(map.post)
+    end
+  end
+
   private
 
   def post_params
-    params.require(:post).permit(:image, :title, :explanation, :genre_id)
+    params.require(:post).permit(:image, :title, :explanation, :genre_id, :latitude, :longitude)
   end
 
   def correct_user
