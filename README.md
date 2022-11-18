@@ -1,24 +1,31 @@
-# README
+# <Let's Wakayama>
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## サイト概要
+### サイトテーマ
+どこで何のイベントが開かれるか、また和歌山の良いところを投稿して共有できるSNSサイト
 
-Things you may want to cover:
+### テーマを選んだ理由
+私自身和歌山に引っ越してきて、こんなに住みやすくて良いところはないなと感じていました。  
+そんな和歌山のおいしいお店や楽しいバー、その店や和歌山市のイベント情報がまとめて見られたら、  
+和歌山を盛り上げることができて地域活性化につながると考えています。  
+また、和歌山在住の方も知らない情報やイベントに行きやすくなったり、旅行で来た方や、  
+他府県から引っ越してきた方にも和歌山に親しみをもっていただけるかなと思い、このテーマにしました。
 
-* Ruby version
+### ターゲットユーザ
+他府県からの旅行客や引越しの方  
+和歌山に住んでいる方
 
-* System dependencies
+### 主な利用シーン
+- どこで何のイベントを行うかの情報を投稿するとき
+- おいしかったお店の情報や、映えスポット、など和歌山の良いところを投稿するとき
+- 和歌山のイベント情報や、お店などを知りたいとき
 
-* Configuration
+## 設計書
+<...>
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## 開発環境
+- OS：Linux(CentOS)
+- 言語：HTML,CSS,JavaScript,Ruby,SQL
+- フレームワーク：Ruby on Rails
+- JSライブラリ：jQuery
+- IDE：Cloud9
