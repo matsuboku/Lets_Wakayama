@@ -119,6 +119,11 @@ GEM
     mini_mime (1.1.2)
     minitest (5.16.3)
     msgpack (1.6.0)
+    mysql2 (0.5.4)
+    net-imap (0.3.1)
+      net-protocol
+    net-pop (0.1.2)
+      net-protocol
     net-protocol (0.1.3)
       timeout
     net-smtp (0.3.3)
@@ -128,8 +133,7 @@ GEM
       racc (~> 1.4)
     orm_adapter (0.5.0)
     public_suffix (5.0.0)
-    puma (5.6.5)
-      nio4r (~> 2.0)
+    puma (3.12.6)
     racc (1.6.0)
     rack (2.2.4)
     rack-mini-profiler (2.3.4)
@@ -247,8 +251,11 @@ DEPENDENCIES
   image_processing (~> 1.2)
   jbuilder (~> 2.7)
   listen (~> 3.3)
+  mysql2
+  net-imap
+  net-pop
   net-smtp
-  puma (~> 5.0)
+  puma (~> 3.11)
   rack-mini-profiler (~> 2.0)
   rails (~> 6.1.7)
   sass-rails (>= 6)
