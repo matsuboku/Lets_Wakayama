@@ -1,0 +1,34 @@
+<div class = "container">
+  <div class = "row py-4">
+    <h3>ログイン</h3>
+  </div>
+
+  <%= form_with model: @user, url: user_session_path do |f| %>
+    <div class="field">
+      <%= f.label :"メールアドレス" %><br />
+      <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    </div>
+
+    <div class="field">
+      <%= f.label :"パスワード" %><br />
+      <%= f.password_field :password, autocomplete: "current-password" %>
+    </div>
+
+    <!--<%# if devise_mapping.rememberable? %>-->
+    <!--  <div class="field">-->
+    <!--    <%#= f.check_box :remember_me %>-->
+    <!--    <%#= f.label :remember_me %>-->
+    <!--  </div>-->
+    <!--<%# end %>-->
+
+  <div class= "actions mt-3">
+    <%= f.submit "ログイン" , class: 'btn btn-primary' %>
+    <% end %>
+  </div>
+
+  <div class= "row mt-4">
+    <h4>会員登録がお済でない方</h4>
+  </div>
+    <%= link_to "こちら ", new_user_registration_path %>から新規登録を行ってください。
+    <%#= render "public/shared/links" %>
+ </div>

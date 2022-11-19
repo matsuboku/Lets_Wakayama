@@ -1,0 +1,13 @@
+<div class="container col-9 pt-4">
+    <h3 class= "text-center">退会のお手続き</h3>
+     <div class= "text-center pt-4">
+       退会手続きをされますと、会員登録情報やこれまでの投稿一覧が閲覧できなくなります。<br>
+       再度ご利用をいただく場合には、新規登録のお手続きが必要になります。<br>
+       本当に退会してよろしいですか？
+    </div>
+
+  <div class="row justify-content-center mt-4">
+      <%= link_to "退会する", users_withdraw_path, method: :patch, data: { confirm: "本当に退会しますか？" }, class: 'btn btn-danger col-lg-2' %>
+      <%= link_to "退会しない" , users_my_page_path(current_user), class: 'btn btn-success col-lg-2 offset-1' %>
+  </div>
+ </div>

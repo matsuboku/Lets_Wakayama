@@ -1,0 +1,11 @@
+<div class="p-3"><strong>ジャンル検索</strong></div>
+
+<% genres.each do |genre| %>
+  <ul>
+    <li>
+      <%= link_to root_path(genre_id: genre.id), class:"text-dark" do %>
+        <%= genre.name %>
+      <% end %>
+    </li>
+  </ul>
+<% end %>

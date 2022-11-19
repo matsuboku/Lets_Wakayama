@@ -1,0 +1,68 @@
+<div class='container px-sm-0'>
+  <div class='row'>
+    <div class='col-lg-2 col-md-2'></div>
+    <div class="col-sm-12 col-md-8">
+      <h3 class="py-3">マイページ</h3>
+      <table class='table table-borderless table-responsive'>
+        <tr>
+          <th><%= image_tag @user.get_profile_image(100,100),class: "rounded-circle" %></th>
+          <th><%= @user.posts.count %><br>投稿数</th>
+          <th>
+            <%= link_to user_followers_path(@user), class: "text-dark" do %>
+             <%= @user.followers.count %>
+            <% end %>
+            <br>フォロワー
+          </th>
+          <th>
+            <%= link_to user_followings_path(@user), class: "text-dark" do %>
+              <%= @user.followings.count %>
+            <% end %>
+            <br>フォロー
+          </th>
+
+        </tr>
+        <tr>
+      	  <th>ユーザー名 : <%= @user.name %></th>
+        </tr>
+        <tr>
+      	  <th>自己紹介：<%= @user.introduction %></th>
+        </tr>
+        <tr>
+          <th>
+          <% unless (@user.name == "guestuser")&&(@user == current_user) %>
+            <% if current_user.following?(@user) %>
+            　<%= link_to  user_relationships_path(@user.id), method: :delete, class: "text-dark" do %>
+            　 <i class="fa-solid fa-user-plus">フォローを外す </i>
+            　 <% end %>
+            <% else %>
+            　<%= link_to user_relationships_path(@user.id), method: :post, class: "text-dark" do %>
+            　<i class="fa-solid fa-user-plus">フォローする </i>
+            　<% end %>
+          　<% end %>
+          <% end %>
+          </th>
+        </tr>
+      </table>
+
+      <div class='row'>
+        <div class="col-sm-12">
+          <% if (@user.name != "guestuser")&&(@user = current_user) %>
+            <%= link_to edit_user_path, class: "btn btn-outline-secondary btn-block" do %>
+              <i class="fas fa-user-cog"></i>
+            <% end %>
+          <% else %>
+            <td></td>
+          <% end %>
+        </div>
+      </div>
+    </div>
+
+    <div class='col-lg-3 col-md-2'></div>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-0 col-lg-8 mx-auto">
+      <%= render 'public/posts/post', posts: @posts %>
+    </div>
+  </div>
+</div>
