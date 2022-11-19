@@ -1,14 +1,14 @@
 <div id="top" class="container">
+  <div class="row pt-4">
+    <h3>みんなの投稿</h3>
+  </div>
   <div class="row">
-    <div class="col-md-3">
-      <div class="mt-4">
-        <div class="pl-3"><strong><%= link_to "新着", posts_path, class: "text-dark" %></strong></div>
-
-        <%= render 'admin/genres/genre_sidebar', genres: @genres%>
-      </div>
+    <div class="col-md-3 px-auto">
+      <div class="pl-3"><strong><%= link_to "新着", posts_path, class: "text-dark" %></strong></div>
+      <%= render 'admin/genres/genre_sidebar', genres: @genres%>
     </div>
 
-    <div class="col-md-9 py-4">
+    <div class="col-md-9 pb-4">
       <div id='map'></div>
       <style>
       #map {

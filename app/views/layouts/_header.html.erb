@@ -1,7 +1,7 @@
 <header class="shadow-sm">
-      <nav class="navbar navbar-expand-lg navbar-light">
+    <nav class="navbar navbar-expand-lg navbar-light">
       <a class="navbar-brand" href="/">
-        <%= image_tag 'logo.png', class: 'logo mx-auto' %>
+        <%= image_tag asset_path('logo2.png'), class: 'logo mx-auto' %>
       </a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -18,6 +18,11 @@
             <li class="nav-item mx-3">
               <%= link_to user_path(current_user), class: 'nav-link text-dark' do %>
               <i class="fa-solid fa-user-gear">マイページ</i>
+              <% end %>
+            </li>
+            <li class="nav-item mx-3">
+              <%= link_to posts_path, class: 'nav-link text-dark' do %>
+              <i class="fa-solid fa-book">投稿一覧</i>
               <% end %>
             </li>
             <li class="nav-item mx-3">
@@ -78,4 +83,7 @@
         </ul>
       </div>
     </nav>
+    <div class="text-right mr-3 ">
+      <%= render 'public/searches/search' %>
+    </div>
     </header>

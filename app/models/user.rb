@@ -43,6 +43,10 @@ class User < ApplicationRecord
     end
   end
 
+  def self.looks(search, word)
+      @user = User.where("name LIKE?","%#{word}%")
+  end
+
   has_one_attached :profile_image
   def get_profile_image(width, height)
   unless profile_image.attached?

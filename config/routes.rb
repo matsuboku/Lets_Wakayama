@@ -34,11 +34,12 @@ Rails.application.routes.draw do
       resource :relationships, only: [:create, :destroy]
       get 'followings' => 'relationships#followings', as: 'followings'
       get 'followers' => 'relationships#followers', as: 'followers'
-    # ユーザーidが含まれてるurlにするため
+      # ユーザーidが含まれてるurlにするため
       member do
         get :favorites
       end
     end
+    get "search" => "searches#search"
     get 'latlngsearch/:lat/:lng' => 'posts#search', constraints: { lat: /\d+\.\d+/, lng: /\d+\.\d+/ }
     resources :posts, only: [:new, :create, :index, :show, :edit, :update, :destroy] do
       resource :favorites, only: [:create, :destroy]

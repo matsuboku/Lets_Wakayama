@@ -15,6 +15,7 @@
 
   <tbody>
     <% @users.each do |user| %>
+    <% if user.name != "guestuser" %>
     <tr>
       <td class="id"><%= user.id %></td>
       <td class="name"><%= user.name %></td>
@@ -27,6 +28,7 @@
       </td>
       <td class="show"><%= link_to "表示", admin_user_path(user), class: 'btn btn-success' %></td>
     </tr>
+    <% end %>
     <% end %>
   </tbody>
   </table>
