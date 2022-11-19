@@ -2,7 +2,8 @@
   <div class="row">
     <h2 class="py-4">検索結果</h2>
 
-    <table class="table table-hover table-inverse">
+    <table class="table table-hover table-inverse text-center">
+      <% if params[:word].present? %>
       <!--検索対象モデルがUserの時 -->
       <% if @range == "User" %>
         <thead>
@@ -22,7 +23,7 @@
           <% end %>
         </tbody>
       <% else %>
-        <!--検索対象モデルがUserではない時(= 検索対象モデルがBookの時) -->
+        <!--検索対象モデルがUserではない時(= 検索対象モデルがPostの時) -->
         <thead>
           <tr>
             <th></th>
@@ -39,6 +40,7 @@
             </tr>
           <% end %>
         </tbody>
+      <% end %>
       <% end %>
     </table>
   </div>

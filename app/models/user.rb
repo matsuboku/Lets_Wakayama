@@ -44,11 +44,7 @@ class User < ApplicationRecord
   end
 
   def self.looks(search, word)
-    if search == "partial_match"
       @user = User.where("name LIKE?","%#{word}%")
-    else
-      @user = User.all
-    end
   end
 
   has_one_attached :profile_image
