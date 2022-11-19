@@ -14,8 +14,8 @@
         </tr>
       </thead>
       <tbody>
-        <% if user.name =! guestuser %>
         <% @users.each do |user| %>
+        <% if user.name != "guestuser" %>
           <tr>
             <td class="align-middle"><%= user.id %></td>
             <td class="align-middle">

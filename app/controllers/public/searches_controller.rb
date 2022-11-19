@@ -2,6 +2,10 @@ class Public::SearchesController < ApplicationController
   before_action :authenticate_user!
 
   def search
+    if params[:word].empty?
+      redirect_to root_path
+    end
+
     @range = params[:range]
 
     if @range == "User"
@@ -10,4 +14,5 @@ class Public::SearchesController < ApplicationController
       @posts = Post.looks(params[:search], params[:word])
     end
   end
+
 end
