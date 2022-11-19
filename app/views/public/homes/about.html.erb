@@ -1,2 +1,18 @@
-<h1>Public::Homes#about</h1>
-<p>Find me in app/views/public/homes/about.html.erb</p>
+<div class="container">
+  <div class="row py-4">
+    <div class="col-md-12">
+      <div class="about">
+        <h1 class= "title text-center">About</h1>
+        <p class="about-text text-center">
+         Let's WAKAYAMAは、和歌山のイベント情報やおいしいお店、流行場所等を<br>
+         共有してまとめて見られるサイトです。<br>
+         <strong>みんなで和歌山を盛り上げていきましょう！</strong>
+        </p>
+        <p class="text-center">閲覧のみは<%= link_to "こちら", root_path %></p>
+        <p class="text-center">投稿するには<%= link_to "こちら", new_user_registration_path %></p>
+        <div class="col d-flex justify-content-center "><%= image_tag asset_path('logo.1.png'),width: '60%', height: '60%' %></div>
+
+      </div>
+    </div>
+  </div>
+</div>
