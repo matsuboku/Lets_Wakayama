@@ -14,10 +14,12 @@
   <body>
     <div class="footerFixed">
       <%= render 'layouts/header' %>
+
       <main>
         <%= flash[:notice] %>
         <%= yield %>
       </main>
+
       <%= render 'layouts/footer' %>
     </div>
   </body>

@@ -48,6 +48,8 @@ function codeAddress(){
       //検索した時に緯度経度を入力する
       document.getElementById('latitude').value = results[0].geometry.location.lat();
       document.getElementById('longitude').value = results[0].geometry.location.lng();
+      lat.textContent = "緯度：" + results[ 0 ].geometry.location.lat();
+      lng.textContent = "経度：" + results[ 0 ].geometry.location.lng();
       // マーカーのドロップ（ドラッグ終了）時のイベント
       google.maps.event.addListener( marker, 'dragend', function(ev){
         // イベントの引数evの、プロパティ.latLngが緯度経度
@@ -56,8 +58,6 @@ function codeAddress(){
         lat.textContent = "緯度：" + ev.latLng.lat();
         lng.textContent = "経度：" + ev.latLng.lng();
       })
-      lat.textContent = "緯度：" + results[ 0 ].geometry.location.lat();
-      lng.textContent = "経度：" + results[ 0 ].geometry.location.lng();
     } else {
       alert('該当する結果がありませんでした：' + status);
     }

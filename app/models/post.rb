@@ -6,6 +6,8 @@ class Post < ApplicationRecord
 
   validates :title, presence: true
   validates :explanation, presence: true
+  validates :latitude, presence: true
+  validates :longitude, presence: true
 
   has_one_attached :image
   def get_image(width, height)

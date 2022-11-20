@@ -2,6 +2,8 @@
   <div class="row justify-content-center pt-4">
     <h4>ジャンル一覧・追加</h4>
   </div>
+
+  <!--ジャンル新規追加-->
   <%= form_with model: @genre,url: admin_genres_path, local:true ,class: "row justify-content-center" do |f| %>
     <div class="form-group row justify-content-center">
       <%=f.text_field :name, autofocus: true, class: "col-sm-6"  %>
@@ -9,14 +11,17 @@
     </div>
   <% end %>
 
+  <!--ジャンル一覧-->
   <div class="row justify-content-center mt-4">
     <table class="table table-hover col-lg-5 col-md-5 justify-content-center">
+
       <thead class="thead-light text-center">
         <tr>
           <th>ジャンル</th>
           <th></th>
         </tr>
       </thead>
+
       <tbody class="text-center">
         <%  @genres.each do |genre| %>
           <tr>
@@ -25,6 +30,7 @@
           </tr>
         <% end %>
       </tbody>
+
     </table>
   </div>
 </div>
