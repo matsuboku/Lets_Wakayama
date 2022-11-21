@@ -1,11 +1,13 @@
 <div class="container">
   <div class="row">
     <div class="card-group w-90">
+      
       <% posts.each do |posts| %>
       <div class="card my-4 mx-2">
         <%= link_to post_path(posts.id) do %>
           <%= image_tag posts.get_image(100,100), class:"card-img-top"; %>
         <% end %>
+        
         <div class="card-body">
           <div>
             <p class="card-title">
@@ -19,8 +21,10 @@
             <span class="favorites_buttons_<%= posts.id %>"><%= render 'public/favorites/favorite', post: posts %></span>
           </div>
         </div>
+        
       </div>
       <% end %>
+      
     </div>
   </div>
 </div>
