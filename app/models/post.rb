@@ -22,7 +22,7 @@ class Post < ApplicationRecord
   def favorited_by?(user)
     favorites.exists?(user_id: user.id)
   end
-
+  # 検索するためのメソッド
   def self.looks(search, word)
       @post = Post.where("title LIKE?","%#{word}%")
   end
