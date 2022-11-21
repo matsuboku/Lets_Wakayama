@@ -2,7 +2,7 @@
 <table>
   <% post.post_comments.each do |post_comment| %>
   <tr>
-    <td><%= image_tag post_comment.user.get_profile_image(50,50) %></td>
+    <td><%= image_tag post_comment.user.get_profile_image(50,50, class:"mt-3 rounded-circle";) %></td>
     <td><%= post_comment.comment %></td>
     <td>
       <% if post_comment.user == current_user %>
