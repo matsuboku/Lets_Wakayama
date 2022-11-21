@@ -1,5 +1,6 @@
 class Public::PostsController < ApplicationController
   before_action :correct_user, only:[:edit, :update]
+
   def new
     @post = Post.new
 
@@ -39,7 +40,7 @@ class Public::PostsController < ApplicationController
   end
 
   def search
-    maps = Map.where(latitude: params[:lat]).where(longitude: params[:lng])
+    maps = Map.where(latitude: params[:latitude]).where(longitude: params[:longitude])
     @marker_arr =[]
     maps.each do |map|
       #pushメソッドは配列に値を入れるメソッド

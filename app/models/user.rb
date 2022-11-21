@@ -35,14 +35,15 @@ class User < ApplicationRecord
   def active_for_authentication?
     super && (is_deleted == false)
   end
-
+  # ゲストログイン時のデータ定義
   def self.guest
     find_or_create_by!(name: 'guestuser' ,email: 'guest@example.com') do |user|
+      # ランダムな文字列を生成するメソッド
       user.password = SecureRandom.urlsafe_base64
       user.name = "guestuser"
     end
   end
-
+# 検索するためのメソッド
   def self.looks(search, word)
       @user = User.where("name LIKE?","%#{word}%")
   end

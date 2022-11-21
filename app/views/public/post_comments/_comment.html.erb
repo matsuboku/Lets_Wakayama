@@ -1,3 +1,4 @@
+<!--コメントを表示-->
 <table>
   <% post.post_comments.each do |post_comment| %>
   <tr>
@@ -11,9 +12,13 @@
   </tr>
   <% end %>
 </table>
+
+<!--コメント送信-->
 <div>
-  <%= form_with model: [post, post_comment] ,local: false do |f| %>
-    <%= f.text_area :comment %>
-    <%= f.submit "送信" %>
+  <% if user_signed_in? %>
+    <%= form_with model: [post, post_comment] ,local: false do |f| %>
+      <%= f.text_area :comment %>
+      <%= f.submit "送信" %>
+    <% end %>
   <% end %>
 </div>

@@ -6,6 +6,8 @@ class Post < ApplicationRecord
 
   validates :title, presence: true
   validates :explanation, presence: true
+  validates :latitude, presence: true
+  validates :longitude, presence: true
 
   has_one_attached :image
   def get_image(width, height)
@@ -20,7 +22,7 @@ class Post < ApplicationRecord
   def favorited_by?(user)
     favorites.exists?(user_id: user.id)
   end
-
+  # 検索するためのメソッド
   def self.looks(search, word)
       @post = Post.where("title LIKE?","%#{word}%")
   end
