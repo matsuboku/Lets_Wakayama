@@ -10,6 +10,7 @@ class Post < ApplicationRecord
   validates :longitude, presence: true
 
   has_one_attached :image
+  validates :image, blob: { content_type: ['image/png', 'image/jpg', 'image/jpeg'], size_range: 1..(3.megabytes)}
   def get_image(width, height)
     unless image.attached?
       file_path = Rails.root.join('app/assets/images/no_image.jpg')
