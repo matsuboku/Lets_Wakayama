@@ -4,7 +4,7 @@
   </div>
   <div class="row">
     <div class="col-md-3 px-auto">
-      <div class="pl-3"><strong><%= link_to "新着", posts_path, class: "text-dark" %></strong></div>
+      <div class="pl-3"><strong><%= link_to "新着", posts_path, class: "text-dark", data: { turbolinks: false } %></strong></div>
       <%= render 'admin/genres/genre_sidebar', genres: @genres%>
     </div>
 
@@ -24,6 +24,7 @@
             center: {lat: 34.22611, lng:135.1675},  //和歌山
             zoom: 14,
           });
+
           <% @posts.each do |post| %>
           <% if post.latitude && post.longitude %>
             ( function() {

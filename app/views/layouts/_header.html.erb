@@ -66,7 +66,7 @@
         <!--顧客・管理者ログアウト時-->
         <% else %>
           <li class="nav-item mx-3">
-            <%= link_to about_path, class: 'nav-link text-dark' do %>
+            <%= link_to about_path, class: 'nav-link text-dark', data: { turbolinks: false } do %>
              <i class="fa-solid fa-house-chimney">About</i>
             <% end %>
           </li>
