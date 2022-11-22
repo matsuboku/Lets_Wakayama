@@ -26,6 +26,7 @@ class Admin::GenresController < ApplicationController
      flash[:notice] = "更新しました。"
      redirect_to admin_genres_path
     else
+     flash[:notice] = "更新できませんでした。"
      @genre = Genre.find(params[:id])
      render 'edit'
     end
