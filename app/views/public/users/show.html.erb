@@ -4,7 +4,7 @@
     <div class='col-lg-2 col-md-2'></div>
 
     <div class="col-sm-12 col-md-8">
-      <h3 class="py-3">マイページ</h3>
+      <h3 class="pt-3">マイページ</h3>
       <table class='table table-borderless table-responsive'>
         <tr>
           <th><%= image_tag @user.get_profile_image(100,100),class: "rounded-circle" %></th>
@@ -67,7 +67,7 @@
     <div class='col-lg-3 col-md-2'></div>
   </div>
 
-  <div class="row my-4">
+  <div class="row py-4">
     <%= render 'public/posts/post', posts: @posts %>
   </div>
 

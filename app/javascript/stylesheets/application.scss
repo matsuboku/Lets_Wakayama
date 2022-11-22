@@ -13,7 +13,18 @@ footer{
     position: absolute;/* ←絶対位置 */
     bottom: 0;
     height: 60px;
+    background-color:#ffc489;
 }
+
 body {
     font-family: "Sawarabi Mincho";
+}
+
+main{
+    min-height: calc(100vh - 86px - 60px);
+    background-color:#fff4ea;
+}
+
+header{
+     background-color:#ffc489;
 }

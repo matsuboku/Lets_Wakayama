@@ -15,32 +15,32 @@
          <!--顧客ログイン時-->
         <% if user_signed_in? %>
           <li class="nav-item mx-3">
-           <%= link_to user_path(current_user), class: 'nav-link text-dark' do %>
+           <%= link_to user_path(current_user), class: 'nav-link text-light' do %>
            ようこそ<strong> <%= current_user.name %>さん！</strong>
            <% end %>
           </li>
           <li class="nav-item mx-3">
-            <%= link_to user_path(current_user), class: 'nav-link text-dark' do %>
+            <%= link_to user_path(current_user), class: 'nav-link text-light' do %>
             <i class="fa-solid fa-user-gear">マイページ</i>
             <% end %>
           </li>
           <li class="nav-item mx-3">
-            <%= link_to posts_path, class: 'nav-link text-dark', data: { turbolinks: false } do %>
+            <%= link_to posts_path, class: 'nav-link text-light', data: { turbolinks: false } do %>
             <i class="fa-solid fa-book">投稿一覧</i>
             <% end %>
           </li>
           <li class="nav-item mx-3">
-            <%= link_to new_post_path, class: 'nav-link text-dark', data: { turbolinks: false } do %>
+            <%= link_to new_post_path, class: 'nav-link text-light', data: { turbolinks: false } do %>
             <i class="fa-solid fa-plus-square">投稿</i>
             <% end %>
           </li>
           <li class="nav-item mx-3">
-            <%= link_to favorites_user_path(current_user), class: 'nav-link text-dark' do %>
+            <%= link_to favorites_user_path(current_user), class: 'nav-link text-light' do %>
             <i class="fa-solid fa-heart">いいね！</i>
             <% end %>
           </li>
           <li class="nav-item mx-3">
-            <%= link_to destroy_user_session_path, class: 'nav-link text-dark',  method: :delete do %>
+            <%= link_to destroy_user_session_path, class: 'nav-link text-light',  method: :delete do %>
             <i class="fa-solid fa-right-from-bracket">ログアウト</i>
             <% end %>
           </li>
@@ -48,17 +48,17 @@
          <!--管理者ログイン時-->
         <% elsif admin_signed_in? %>
           <li class="nav-item mx-3">
-            <%= link_to admin_users_path , class: 'nav-link text-dark' do %>
+            <%= link_to admin_users_path , class: 'nav-link text-light' do %>
             <i class="fa-solid fa-users">ユーザ一覧</i>
             <% end %>
           </li>
           <li class="nav-item mx-3">
-            <%= link_to admin_genres_path , class: 'nav-link text-dark' do %>
+            <%= link_to admin_genres_path , class: 'nav-link text-light' do %>
             <i class="fa-solid fa-tag">ジャンル一覧</i>
             <% end %>
           </li>
           <li class="nav-item mx-3">
-            <%= link_to destroy_admin_session_path, class: 'nav-link text-dark' , method: :delete do %>
+            <%= link_to destroy_admin_session_path, class: 'nav-link text-light' , method: :delete do %>
             <i class="fa-solid fa-right-from-bracket">ログアウト</i>
             <% end %>
           </li>
@@ -66,22 +66,22 @@
         <!--顧客・管理者ログアウト時-->
         <% else %>
           <li class="nav-item mx-3">
-            <%= link_to about_path, class: 'nav-link text-dark' do %>
+            <%= link_to about_path, class: 'nav-link text-light' do %>
              <i class="fa-solid fa-house-chimney">About</i>
             <% end %>
           </li>
           <li class="nav-item mx-3">
-            <%= link_to users_guest_sign_in_path, method: :post, class: 'nav-link text-dark' do %>
+            <%= link_to users_guest_sign_in_path, method: :post, class: 'nav-link text-light' do %>
              <i class="fa-solid fa-clipboard-check">ゲストログイン</i>
             <% end %>
           </li>
           <li class="nav-item mx-3">
-            <%= link_to  new_user_registration_path, class: 'nav-link text-dark' do %>
+            <%= link_to  new_user_registration_path, class: 'nav-link text-light' do %>
             <i class="fa-solid fa-user-plus">新規登録</i>
             <% end %>
           </li>
           <li class="nav-item mx-3">
-            <%= link_to  new_user_session_path, class: 'nav-link text-dark' do %>
+            <%= link_to  new_user_session_path, class: 'nav-link text-light' do %>
             <i class="fa-solid fa-right-to-bracket">ログイン</i>
             <% end %>
           </li>
