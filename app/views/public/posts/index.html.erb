@@ -1,8 +1,8 @@
-  <div class="row ml-3">
+  <div class="row pl-3">
     <!--投稿一覧-->
-    <div class="card-list col-lg-3 col-md-5">
+    <div class="card-list col-lg-3 col-md-5 pb-4">
       <% @posts.each do |post| %>
-        <div class="card w-100 my-4 shadow-lg">
+        <div class="card w-100 mt-4 shadow-lg">
 
           <%= link_to post_path(post.id) do %>
             <%= image_tag post.get_image(200,200), class: "card-img-top" %>

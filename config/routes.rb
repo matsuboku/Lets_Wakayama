@@ -30,14 +30,15 @@ Rails.application.routes.draw do
   get 'users' => 'public/users#dummy'
 
   scope module: :public do
+    get 'users/:id/favorites' => 'users#favorites',as: 'favorites'
     resources :users, only: [:show, :edit, :update] do
       resource :relationships, only: [:create, :destroy]
       get 'followings' => 'relationships#followings', as: 'followings'
       get 'followers' => 'relationships#followers', as: 'followers'
       # ユーザーidが含まれてるurlにするため
-      member do
-        get :favorites
-      end
+      # member do
+      #   get :favorites
+      # end
     end
     get "search" => "searches#search"
     get 'latlngsearch/:lat/:lng' => 'posts#search', constraints: { lat: /\d+\.\d+/, lng: /\d+\.\d+/ }

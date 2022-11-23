@@ -3,9 +3,9 @@
   <div class='row'>
     <div class='col-lg-2 col-md-2'></div>
 
-    <div class="col-sm-12 col-md-8">
+    <div class="col-md-8">
       <h3 class="pt-3">マイページ</h3>
-      <table class='table table-borderless table-responsive'>
+      <table class='table table-borderless'>
         <tr>
           <th><%= image_tag @user.get_profile_image(100,100),class: "rounded-circle" %></th>
           <th><%= @user.posts.count %><br>投稿数</th>
