@@ -10,7 +10,7 @@ class Admin::GenresController < ApplicationController
      flash[:notice] = "ジャンルを追加しました。"
      redirect_to admin_genres_path
    else
-     flash[:notice] = "ジャンルを追加できませんでした。"
+     flash[:alert] = "ジャンルを追加できませんでした。"
      @genres = Genre.all
      render 'index'
    end
@@ -26,8 +26,8 @@ class Admin::GenresController < ApplicationController
      flash[:notice] = "更新しました。"
      redirect_to admin_genres_path
     else
-     flash[:notice] = "更新できませんでした。"
      @genre = Genre.find(params[:id])
+     flash.now[:alert] = 'ジャンル名を入力してください。'
      render 'edit'
     end
   end

@@ -23,11 +23,29 @@ ja:
 
  activerecord:
 
+  models:
+
+   post: "投稿"
+
   attributes:
+
+   admin:
+    email: "メールアドレス"
+
+   post:
+
+    title: "タイトル"
+
+    explanation: "説明"
+
+    latitude: "ピン"
+
+    longitude: "経度"
+
 
    user:
 
-    name: "(ユーザ名)"
+    name: "名前"
 
     email: "メールアドレス"
 
@@ -35,6 +53,17 @@ ja:
 
 
   errors:
+
+   models:
+
+    post:
+
+     attributes:
+
+      latitude:
+
+       blank: "を立ててください"
+
 
    messages:
 

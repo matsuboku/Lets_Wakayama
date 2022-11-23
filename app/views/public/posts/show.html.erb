@@ -36,8 +36,8 @@
           <p>投稿日：<%= @post.created_at.strftime('%Y/%m/%d') %></p>
 
           <% if @post.user == current_user %>
-            <td><%= link_to 'Edit', edit_post_path(@post), class: "btn btn-sm btn-success" %></td>
-            <td><%= link_to 'Destroy', @post, method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-sm btn-danger"%></td>
+            <td><%= link_to '編集', edit_post_path(@post), class: "btn btn-sm btn-success" %></td>
+            <td><%= link_to '削除', @post, method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-sm btn-danger"%></td>
           <% else %>
             <td></td>
             <td></td>

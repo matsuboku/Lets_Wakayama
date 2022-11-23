@@ -7,7 +7,7 @@ class Post < ApplicationRecord
   validates :title, presence: true
   validates :explanation, presence: true
   validates :latitude, presence: true
-  validates :longitude, presence: true
+  # validates :longitude, presence: true
 
   has_one_attached :image
   validates :image, blob: { content_type: ['image/png', 'image/jpg', 'image/jpeg'], size_range: 1..(3.megabytes)}
