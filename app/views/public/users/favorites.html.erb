@@ -3,14 +3,15 @@
   <div class="row">
 
     <% @favorite_posts.each do |post| %>
-    <div class="card my-4 mx-2">
+    <div class="card-group col-lg-3 col-md-3 mb-2">
+
       <%= link_to post_path(post.id) do %>
-        <%= image_tag post.get_image(300,300), class:"card-img-top"; %>
+        <%= image_tag post.get_image(300,300), class: "card-img-top"; %>
       <% end %>
 
       <div class="card-body">
         <p class="card-title">
-          <%= link_to(post_path(post.id), class:"text-dark") do %>
+          <%= link_to(post_path(post.id), class: "text-dark") do %>
             <strong><i class="far fa-flag"></i><span> <%= post.title %></span></strong>
           <% end %>
         </p>
