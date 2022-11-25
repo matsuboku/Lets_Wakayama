@@ -21,7 +21,7 @@
 - 和歌山のイベント情報や、お店などを知りたいとき
 
 ## 設計書
-<...>
+![PF_ER図 drawio](https://user-images.githubusercontent.com/111847220/203954890-379650c3-5f89-45b2-9174-9fc5ac073605.png)
 
 ## 開発環境
 - OS：Linux(CentOS)
