@@ -27,5 +27,6 @@
 - OS：Linux(CentOS)
 - 言語：HTML,CSS,JavaScript,Ruby,SQL
 - フレームワーク：Ruby on Rails
-- JSライブラリ：jQuery
+- JSライブラリ：jQuery, Bootstrap, Font Awesome
 - IDE：Cloud9
+- 外部API：Maps JavaScript API, Geocoding API
